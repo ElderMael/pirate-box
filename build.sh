@@ -6,5 +6,5 @@ docker run \
   --rm --privileged \
   -v /dev:/dev \
   -v "${PWD}":/build \
-  mkaczanowski/packer-builder-arm \
-  build boards/raspberry-pi/raspbian.hcl
+  packer-builder-arm:latest \
+  build boards/raspberry-pi/raspberryos.pkr.hcl
