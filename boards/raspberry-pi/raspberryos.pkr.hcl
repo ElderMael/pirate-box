@@ -43,9 +43,15 @@ build {
     "source.arm.raspberryos"
   ]
 
+  provisioner "file" {
+    destination = "/etc/pihole/"
+    source = "filesystem/etc/pihole/setupVars.conf"
+  }
+
   provisioner "shell" {
     inline = [
-      "touch /boot/ssh"
+      "touch /boot/ssh",
+      "curl -L https://install.pi-hole.net | bash /dev/stdin --unattended"
     ]
   }
 }
